@@ -35,7 +35,7 @@ public class ThreadedGreeting {
 		//   The ThreadedGreeter object should be initialized with 1.
 		Thread t = new Thread(new ThreadedGreeter(1));
 		
-		//6. Start and join the thread. Did you get the required output?
+		//6. Start and join the thread. Did you get the required output? no yes
 		t.start();
 		try {
 			t.join();
