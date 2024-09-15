@@ -17,27 +17,49 @@ public class SynchronizedSwimming {
 	private static final Object swimmingPool = new Object();
 
 	public static void main(String[] args) {
+		
 		Swimmer a = new Swimmer("John");
 		Swimmer b = new Swimmer("Sally");
 		a.start();
 		b.start();
+//		SynchronizedSwimming swimmer = new SynchronizedSwimming();
+//		for(int i = 0; i < 5; i ++) {
+//		swimmer.takeTurn(a);
+//		swimmer.takeTurn(b);
+		
+		
+			
+		
 	}
 
 	/*
 	 * Refactor this method using a synchronized block to ensure a lock must be held on
 	 * the swimmingPool object until the swimmer has finished their lap.
 	 */
+	
+	
+	
 	private static void swimLap(Swimmer swimmer) throws InterruptedException {
-		System.out.println(swimmer.name + " started a lap!");
-		Thread.sleep(2000);
+		
+synchronized(swimmingPool) {
+			
+			System.out.println(swimmer.name + " started a lap!");
+	Thread.sleep(100);
 		System.out.println(swimmer.name + " finished!");
+	//	swimmingPool.notifyAll();
+}
 	}
 
 	public static void takeTurn(Swimmer swimmer) {
-		try {
+		
+		
+		
+		
+			try {
 			swimLap(swimmer);
 			Thread.sleep(100);
 		} catch (InterruptedException ignore) {
 		}
+		
 	}
 }
